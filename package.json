@@ -1,0 +1,16 @@
+{
+  "name": "testproject1",
+  "version": "1.0.0",
+  "description": "test_project_for_education",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cypress",
+    "edu",
+    "learning"
+  ],
+  "author": "stanislav_devico",
+  "license": "MIT"
+}
