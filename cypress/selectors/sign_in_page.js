@@ -1,4 +1,13 @@
 export const sign_in_page = {
     logo_image: '.makeStyles-logo-3',
-    title_text: '.MuiTypography-h5'
+    title_text: '.MuiTypography-h5',
+    username_field: '[id="username-label"]',
+    username_input_field: '[id="username"]',
+    password_field: '[id="password-label"]',
+    password_input_field: '[id="password"]',
+    rememberMe_checkbox: '[class="PrivateSwitchBase-input-14"]',
+    signIn_button: '[data-test="signin-submit"]',
+    userName_validation: '[id="username-helper-text"]',
+    sign_up: '[href="/signup"]',
+    cypress_link: '[href="https://cypress.io"]'
 }
