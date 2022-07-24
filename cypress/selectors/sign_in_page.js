@@ -1,4 +1,5 @@
 export const sign_in_page = {
+    //Locators for elements on the 'sign in' page
     logo_image: '.makeStyles-logo-3',
     title_text: '.MuiTypography-h5',
     username_field: '[id="username-label"]',

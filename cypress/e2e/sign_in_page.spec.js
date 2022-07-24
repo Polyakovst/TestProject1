@@ -59,13 +59,13 @@ describe('UI tests for sign in page', () => {
 
 
     // todo: automate following test cases:
-    // 1. should show typeable Username field +++
-    // 2. should show typeable Password field +++
-    // 3. should show Username and Password placeholders +++
-    // 4. should show 'Username is required' error if user clicks on it and then click outside this field and didn't enter any value +++
-    // 5. check "Remember me" checkbox +++
-    // 6. should show disabled by default sign in btn +++
-    // 7. should have 'Don't have an account? Sign Up' clickable link under 'Sign up' btn +++
-    // 8. should show Cypress copyright link that leads to 'https://www.cypress.io/' +++
+    // 1. should show typeable Username field +
+    // 2. should show typeable Password field +
+    // 3. should show Username and Password placeholders +
+    // 4. should show 'Username is required' error if user clicks on it and then click outside this field and didn't enter any value +
+    // 5. check "Remember me" checkbox +
+    // 6. should show disabled by default sign in btn +
+    // 7. should have 'Don't have an account? Sign Up' clickable link under 'Sign up' btn +
+    // 8. should show Cypress copyright link that leads to 'https://www.cypress.io/' +
 
 })
