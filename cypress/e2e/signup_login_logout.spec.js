@@ -15,11 +15,11 @@ describe('Tests for signup, login, logout', () => {
     })
 
     it('should fill the "firstname", "lastname", "username", "password" and "repeat password" fields', () => {
-        cy.get(sign_up_page.first_name_field).click().type('testfirstname');
-        cy.get(sign_up_page.last_name_field).click().type('testlastname');
-        cy.get(sign_up_page.user_name_field).click().type('testusername');
-        cy.get(sign_up_page.password_field).click().type('testpassword');
-        cy.get(sign_up_page.confirm_password_field).click().type('testpassword')
+        cy.get(sign_up_page.first_name_field).click().type('testfirstnametq');
+        cy.get(sign_up_page.last_name_field).click().type('testlastnametq');
+        cy.get(sign_up_page.user_name_field).click().type('testusernametq');
+        cy.get(sign_up_page.password_field).click().type('testpasswordtq');
+        cy.get(sign_up_page.confirm_password_field).click().type('testpasswordtq')
     })
 
     it('should click the "sign up" button', () => {
@@ -27,8 +27,8 @@ describe('Tests for signup, login, logout', () => {
     })
 
     it('should fill the "Username" and "Password" fields on the "sign in" screen', () => {
-        cy.get(sign_in_page.username_input_field).click().type('testusername');
-        cy.get(sign_in_page.password_input_field).click().type('testpassword')
+        cy.get(sign_in_page.username_input_field).click().type('testusernametq');
+        cy.get(sign_in_page.password_input_field).click().type('testpasswordtq')
     })
 
     it('should click the "Sign in" button', () => {
@@ -40,24 +40,26 @@ describe('Tests for signup, login, logout', () => {
     })
 
     it('should fill the "bank name", "routing number" and "account number" fields in the "Create Bank Account\n" popup', () => {
-        cy.get(main_screen_onboarding_popups.bank_name_field).click().type('testbank');
-        cy.get(main_screen_onboarding_popups.routing_number_field).click().type('145789845');
-        cy.get(main_screen_onboarding_popups.account_number_field).click().type('1122334455');
+        cy.get(main_screen_onboarding_popups.bank_name_field).click().type('testbanky');
+        cy.get(main_screen_onboarding_popups.routing_number_field).click().type('185787845');
+        cy.get(main_screen_onboarding_popups.account_number_field).click().type('182237445');
     })
 
     it('should click the "Save" button in the "Create Bank Account\n" popup', () => {
-        cy.get(main_screen_onboarding_popups.bank_acc_save_button).click()
+        cy.intercept("POST", "/graphql").as("graphql");
+        cy.get(main_screen_onboarding_popups.bank_acc_save_button).click();
+        cy.wait("@graphql")
     })
 
     it('should click the "Done" button in the "Finished" popup', () => {
-        cy.get(main_screen_onboarding_popups.done_button).click()
+        cy.get(main_screen_onboarding_popups.done_button).click();
     })
 
-    it('should click the "Logout" button in the main screen', () => {
-        cy.get(main_screen.logout_button).click()
+   it('should click the "Logout" button in the main screen', () => {
+      cy.get(main_screen.logout_button).click()
     })
 
-    it('should show "Sign in" title', () => {
-        cy.get(sign_in_page.title_text).should('be.visible').and('have.text', 'Sign in')
+   it('should show "Sign in" title', () => {
+      cy.get(sign_in_page.title_text).should('be.visible').and('have.text', 'Sign in')
     })
 })
