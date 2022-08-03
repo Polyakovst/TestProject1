@@ -1,6 +1,4 @@
 export const transaction_creation_screen = {
-    //Locators for elements on the new transaction creation screen
-
     search_field: '[data-test="user-list-search-input"]',
     users_list: '[data-test="users-list"]',
     select_user_edgar_johns: '[data-test="user-list-item-t45AiwidW"]',
@@ -13,5 +11,4 @@ export const transaction_creation_screen = {
     create_another_transaction_button: '[data-test="new-transaction-create-another-transaction"]',
     amount_validation_message: '[id="transaction-create-amount-input-helper-text"]',
     note_validation_message: '[id="transaction-create-description-input-helper-text"]',
-
 }

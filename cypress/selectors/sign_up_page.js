@@ -1,5 +1,4 @@
 export const sign_up_page = {
-    //Locators for elements on the 'sign up' page
     sign_up_text: '.MuiTypography-h5',
     first_name_field: '[id="firstName"]',
     last_name_field: '[id="lastName"]',
