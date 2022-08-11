@@ -2,6 +2,7 @@ export const transaction_creation_screen = {
     search_field: '[data-test="user-list-search-input"]',
     users_list: '[data-test="users-list"]',
     select_user_edgar_johns: '[data-test="user-list-item-t45AiwidW"]',
+    select_user_arely_kertzmann: '[data-test="user-list-item-qywYp6hS0U"]',
     amount_field: '[id="amount"]',
     add_a_note_field: '[id="transaction-create-description-input"]',
     request_button: '[data-test="transaction-create-submit-request"]',
