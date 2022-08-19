@@ -5,5 +5,14 @@ export const transactions_screen = {
     like_button: '[data-test="transaction-like-button-183VHWyuQMS"]',
     like_button_2: '[data-test="transaction-like-button--7xanIywv9x"]',
     comment_field: '[id="transaction-comment-input-183VHWyuQMS"]',
-    comment_field_2: '[id="transaction-comment-input--7xanIywv9x"]'
+    comment_field_2: '[id="transaction-comment-input--7xanIywv9x"]',
+    headed_section: '[class="MuiPaper-root MuiAppBar-root MuiAppBar-positionAbsolute MuiAppBar-colorPrimary makeStyles-appBar-22 makeStyles-appBarShift-23 MuiPaper-elevation4"]',
+    transaction_navigation_tabs: '[data-test="nav-transaction-tabs"]',
+    everyone_tab: '[data-test="nav-public-tab"]',
+    friends_tab: '[data-test="nav-contacts-tab"]',
+    mine_tab: '[data-test="nav-personal-tab"]',
+    like_counter: '[data-test="transaction-like-count-183VHWyuQMS"]',
+    comments_list: '[data-test="comments-list"]',
+    accept_request_button: '[data-test*="transaction-accept-request"]',
+    reject_request_button: '[data-test*="transaction-reject-request"]',
 }
