@@ -1,4 +1,3 @@
-import {sign_in_page} from "../selectors/sign_in_page";
 import {main_screen} from "../selectors/main_screen";
 import {user_settings_screen} from "../selectors/user_settings_screen.js";
 
@@ -7,9 +6,7 @@ describe('Tests for user settings screen ', () => {
     beforeEach("log in", () => {
         cy.clearCookies();
         cy.visit("/");
-        cy.get(sign_in_page.username_input_field).click().type('Allie2');
-        cy.get(sign_in_page.password_input_field).click().type('s3cret');
-        cy.get(sign_in_page.signIn_button).click()
+        cy.loginByApi()
     })
 
     it('Should show user settings form', () => {

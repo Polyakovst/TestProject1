@@ -30,3 +30,18 @@ Cypress.Commands.add('ui_onboarding', () => {
     cy.get(main_screen_onboarding_popups.bank_acc_save_button).click();
     cy.get(main_screen_onboarding_popups.done_button).click()
     });
+
+Cypress.Commands.add("loginByApi", (username = 'Allie2', password = 's3cret') => {
+    cy.window({ log: false }).then((win) => win.authService.send("LOGIN", { username, password }));
+    cy.get(main_screen.home_button).should('be.visible');
+});
+
+Cypress.Commands.add("logoutByApi", () => {
+    cy.window({ log: false }).then((win) => win.authService.send("LOGOUT"));
+    cy.get(sign_in_page.title_text).should('be.visible');
+});
+
+Cypress.Commands.add("signupByApi", (firstName = 'testFirstName', lastName = 'testLastName', username = 'testUserName', password = 'testPass', confirmPassword = 'testPass') => {
+    cy.window({ log: false }).then((win) => win.authService.send("SIGNUP", { firstName, lastName, username, password, confirmPassword }));
+    cy.get(sign_in_page.title_text).should('be.visible')
+})
