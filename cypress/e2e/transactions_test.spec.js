@@ -1,4 +1,3 @@
-import { sign_in_page } from "../selectors/sign_in_page";
 import { main_screen } from "../selectors/main_screen";
 import {transaction_creation_screen} from "../selectors/transaction_creation_screen.js";
 import {transactions_screen} from "../selectors/transactions_screen.js";
@@ -7,9 +6,7 @@ describe('Test for transactions', () => {
 
     before("log in", () => {
         cy.visit("/");
-        cy.get(sign_in_page.username_input_field).click().type('Allie2');
-        cy.get(sign_in_page.password_input_field).click().type('s3cret');
-        cy.get(sign_in_page.signIn_button).click()
+        cy.loginByApi();
     });
 
     it('should search user', () => {
@@ -55,10 +52,8 @@ describe('Test for transactions', () => {
     })
 
     it('should log out and log in as transactions receiver', () => {
-        cy.get(main_screen.logout_button).click();
-        cy.get(sign_in_page.username_input_field).click().type('Katharina_Bernier');
-        cy.get(sign_in_page.password_input_field).click().type('s3cret');
-        cy.get(sign_in_page.signIn_button).click();
+        cy.logoutByApi();
+        cy.cy.loginByApi('Katharina_Bernier','s3cret');
     })
 
     it('should show received transactions', () => {

@@ -1,4 +1,3 @@
-import { sign_in_page } from "../selectors/sign_in_page";
 import { main_screen } from "../selectors/main_screen";
 import {transaction_creation_screen} from "../selectors/transaction_creation_screen.js";
 import {transactions_screen} from "../selectors/transactions_screen.js";
@@ -9,9 +8,7 @@ describe('Test for transactions', () => {
     before("log in", () => {
         cy.clearCookies();
         cy.visit("/");
-        cy.get(sign_in_page.username_input_field).click().type('Allie2');
-        cy.get(sign_in_page.password_input_field).click().type('s3cret');
-        cy.get(sign_in_page.signIn_button).click()
+        cy.loginByApi();
     })
 
     it('User A should send payment and request to user B/like and comment transaction of User B/like and comment transaction between User B and C', () => {
@@ -32,28 +29,24 @@ describe('Test for transactions', () => {
         cy.get(transaction_creation_screen.amount_field).click().type('15');
         cy.get(transaction_creation_screen.add_a_note_field).click().type('Test payment for Arely Kertzmann');
         cy.get(transaction_creation_screen.button_pay).click();
-        cy.get(main_screen.logout_button).click();
+        cy.logoutByApi();
     })
 
     it('User B should see notifications(like, comment, request, payment)', () => {
-        cy.get(sign_in_page.username_input_field).click().type('Tavares_Barrows');
-        cy.get(sign_in_page.password_input_field).click().type('s3cret');
-        cy.get(sign_in_page.signIn_button).click();
+        cy.loginByApi('Tavares_Barrows','s3cret');
         cy.get(main_screen.notifications_button).click();
         cy.get(notifications_screen.notifications_list).should('contain.text', 'Kaylin Homenick liked a transaction.');
         cy.get(notifications_screen.notifications_list).should('contain.text', 'Kaylin Homenick commented on a transaction.')
         cy.get(notifications_screen.notifications_list).should('contain.text', 'Kaylin Homenick requested payment.')
         cy.get(notifications_screen.notifications_list).should('contain.text', 'Arely Kertzmann received payment.')
-        cy.get(main_screen.logout_button).click();
+        cy.logoutByApi();
     })
 
     it('User C should see notifications(like, comment)', () => {
-        cy.get(sign_in_page.username_input_field).click().type('Katharina_Bernier');
-        cy.get(sign_in_page.password_input_field).click().type('s3cret');
-        cy.get(sign_in_page.signIn_button).click();
+        cy.loginByApi('Katharina_Bernier','s3cret');
         cy.get(main_screen.notifications_button).click();
         cy.get(notifications_screen.notifications_list).should('contain.text', 'Kaylin Homenick liked a transaction.');
         cy.get(notifications_screen.notifications_list).should('contain.text', 'Kaylin Homenick commented on a transaction.')
-        })
+    })
 
 })
