@@ -45,3 +45,19 @@ Cypress.Commands.add("signupByApi", (firstName = 'testFirstName', lastName = 'te
     cy.window({ log: false }).then((win) => win.authService.send("SIGNUP", { firstName, lastName, username, password, confirmPassword }));
     cy.get(sign_in_page.title_text).should('be.visible')
 })
+
+Cypress.Commands.add("create_bank_account_API",(bankName, accountNumber, routingNumber) => {
+        cy.request("POST", `http://localhost:3001/bankAccounts`, {bankName, accountNumber, routingNumber});
+});
+
+Cypress.Commands.add("delete_bank_account_API",(bankAccountId) => {
+    cy.request("DELETE", `http://localhost:3001/bankAccounts/${bankAccountId}`);
+});
+
+Cypress.Commands.add("add_contact_API", (userId) => {
+    cy.request("POST", `http://localhost:3001/contacts`, {contactUserId: userId});
+});
+
+Cypress.Commands.add("delete_contact_API", (userId) => {
+    cy.request("DELETE", `http://localhost:3001/contacts/${userId}`);
+});
