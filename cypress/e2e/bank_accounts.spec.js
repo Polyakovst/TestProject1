@@ -54,9 +54,11 @@ describe('Tests bank accounts(create, delete, errors)', () => {
         cy.get(main_screen_onboarding_popups.done_button).click();
     })
 
-    it('should open "Bank accounts" screen', () => {
+    it('should delete Bank Account', () => {
         cy.get(main_screen.bank_accounts_button).click();
-        cy.get(bank_account_screen.my_accounts_text).should('be.visible');
+        cy.get(bank_account_screen.bank_accounts_list).should('contain.text', 'testbankq');
+        cy.get(bank_account_screen.delete_bank_account_button).click()
+        cy.get(bank_account_screen.bank_accounts_list).should("contain.text", 'testbankq').and('contain.text', '(Deleted)')
     })
 
     it('should open "Bank accounts" creation screen', () => {
